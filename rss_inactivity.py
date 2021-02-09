@@ -1,6 +1,4 @@
 from re import split
-import unittest
-import pip
 import feedparser
 import datetime
 import logging
@@ -31,7 +29,6 @@ def get_rss_inactivity(rss_dict, minimum_days_inactive, today=datetime.datetime.
     for company in rss_dict:
         feed_urls = rss_dict[company]
         for url in feed_urls:
-            feedFound = False
             try:
                 feed = feedparser.parse(url)
             except:
@@ -61,7 +58,6 @@ def days_since_last_update(feed, today):
     The day difference between that date and 'today' is then returned. '''
 
     # Dates have a strange format. Split the items by spaces, then build a datetime object so we can do date arithmetic
-
     try:
         date_str = feed["feed"]["published"]
     except (KeyError):
@@ -83,8 +79,14 @@ def days_since_last_update(feed, today):
     return (today - last_post_date).days
 
 
-# Baseline type and value argument checks to make sure the function is being used as intended.
 def sanity_check(rss_dict, minimum_days_inactive):
+    '''
+     Baseline type and value argument checks to make sure the function is being used as intended.
+     In some cases, the function only checks the first instance of each argument to avoid iterations over the enitre dictionary.
+     Further type and value mismatchs will be caught through normal exception flow. 
+
+    '''
+
     assert isinstance(
         rss_dict, dict), "Argument of wrong type! Type 'dictionary' required as first argument for fuction get_rss_inactivity"
 

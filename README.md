@@ -1,4 +1,7 @@
 # rss-inactivity
+
+Hi Metabolon! Thanks for taking a look at my code!
+
 RSS-inactivity is a tool for identifying RSS feeds from a dictionary with inactivity greater than a given number of days.
 
 The function get_rss_inactivity(rss_dict, minimum_days_inactive, today=datetime.datetime.today()) accepts a dictionary mapping company names to RSS feeds, and returns those companys which have not updated their feeds in minimuin_days_inactive days. 

@@ -1,6 +1,5 @@
 # rss-inactivity
 
-Hi Metabolon! Thanks for taking a look at my code!
 
 RSS-inactivity is a tool for identifying RSS feeds from a dictionary with inactivity greater than a given number of days.
 
@@ -13,4 +12,4 @@ test_rss_inacivity.py contains various unit tests for rss_inactivity.py.
 My next steps would be to refactor the RSS calls to be asychronous, as a slow XML retreival could bottleneck this single-threaded program. I will also need to add a timeout for the RSS calls, as the parser I used does not have a native timeout functionaity. 
 
 
-Please keep in mind that if some podcasts release a new episode between my writing this and your reading it, some unit tests could potentially fail. On a real project, I would need to create dummy XML data for testing use.
+Please keep in mind that if some podcasts release a new episode between my writing this and your reading it, some unit tests could potentially fail. A real project would require the use of dummy XML data for testing.
